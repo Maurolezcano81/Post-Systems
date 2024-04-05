@@ -21,7 +21,7 @@ const UserSchema = mongoose.Schema({
     },
 })
 
-const createSchema = mongoose.model('Schema', UserSchema);
+const createSchema = mongoose.model('User', UserSchema);
 const User = {
     createSchema
 };

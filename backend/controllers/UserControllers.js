@@ -50,8 +50,8 @@ const signUp = async (req, res) => {
             })
         }
 
-        const pwdHashed = authMiddlewares.hashPwd(pwd);
-
+        const pwdHashed = await authMiddlewares.hashPwd(pwd);
+        console.log(pwdHashed);
         const userRegister = await User.createSchema.create({
             username: username,
             email: email,

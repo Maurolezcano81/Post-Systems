@@ -14,9 +14,10 @@ app.use(cors());
 import database from './config/database.js';
 
 import UserRoutes from './routes/UserRoutes.js';
+import PostRoutes from './routes/PostRoutes.js';
 
 app.use('/api', UserRoutes);
-
+app.use('/api/post', PostRoutes)
 
 app.listen( process.env.SV_PORT, () =>{
   database.connectionDB();
