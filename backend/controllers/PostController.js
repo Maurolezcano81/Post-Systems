@@ -50,7 +50,13 @@ const createPost = async (req, res) => {
 const showPosts = async (req, res) => {
     try {
 
-        const allPosts = await Post.createSchema.find().populate('author', 'username avatarUrl').sort('-createdAt');
+        const allPosts = await Post.createSchema.find().populate('author', 'username avatarUrl').populate({
+            path: 'comments',
+            populate: {
+                path: 'author',
+                select: 'username avatarUrl'
+            }
+        }).sort('-createdAt');
 
         if (allPosts.length === 0) {
             return res.status(404).json({

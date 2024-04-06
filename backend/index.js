@@ -15,9 +15,11 @@ import database from './config/database.js';
 
 import UserRoutes from './routes/UserRoutes.js';
 import PostRoutes from './routes/PostRoutes.js';
+import CommentRoutes from './routes/CommentRoutes.js';
 
 app.use('/api', UserRoutes);
-app.use('/api/post', PostRoutes)
+app.use('/api/post', PostRoutes);
+app.use('/api/post', CommentRoutes);
 
 app.listen( process.env.SV_PORT, () =>{
   database.connectionDB();
