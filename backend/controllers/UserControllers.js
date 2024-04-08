@@ -9,25 +9,44 @@ const signUp = async (req, res) => {
     try {
 
         if (username.length == 0) {
-            return res.status(404).json({
+            return res.status(403).json({
                 message: "Introduce un nombre de usuario"
             })
         } else if (username.length <= 6) {
-            return res.status(404).json({
+            return res.status(403).json({
                 message: "Introduce un nombre de usuario mayor a 6 caracteres"
             })
         }
+        
 
         if (email.length == 0) {
-            return res.status(404).json({
+            return res.status(403).json({
                 message: "Introduce un correo electronico"
             })
         } else {
             if (!emailRegex.test(email)) {
-                return res.status(404).json({
+                return res.status(403).json({
                     message: "Introduce un correo electronico valido"
                 })
             }
+        }
+
+        
+        if (pwd.length == 0) {
+            return res.status(403).json({
+                message: "Introduce una clave"
+            })
+        } else if (pwd.length <= 5) {
+            return res.status(403).json({
+                message: "Introduce una clave mayor a 4 caracteres"
+            })
+        }
+
+        
+        if (avatarUrl.length == 0) {
+            return res.status(403).json({
+                message: "Introduce una imagen de perfil"
+            })
         }
 
         const checkUsernameExists = await User.createSchema.findOne({
@@ -59,7 +78,7 @@ const signUp = async (req, res) => {
             avatarUrl: avatarUrl
         })
 
-        return res.status(201).json({
+        return res.status(200).json({
             message: "Usuario creado correctamente",
             user: userRegister
         })
