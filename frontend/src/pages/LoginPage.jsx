@@ -33,6 +33,8 @@ const Login = () => {
         e.preventDefault();
         localStorage.clear();
         const guestData = {
+            id: "noId",
+            token: "invitado",
             avatarUrl: "https://img.freepik.com/foto-gratis/lindo-gato-relajante-estudio_23-2150692717.jpg",
             user: "Guest"
         }

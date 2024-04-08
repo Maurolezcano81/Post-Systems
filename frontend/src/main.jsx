@@ -10,30 +10,32 @@ import {
 } from "react-router-dom";
 import { AuthProvider } from './context/AuthProvider.jsx';
 import Login from './pages/LoginPage.jsx';
+import { PostProvider } from './context/PostProvider.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
+        <PostProvider>
+          <Routes>
 
-        <Routes>
+            <Route
+              path="/signup"
+              element={<Register />}
+            />
 
-          <Route
-            path="/signup"
-            element={<Register />}
-          />
-
-          <Route
-            path="/signin"
-            element={<Login />} />
+            <Route
+              path="/signin"
+              element={<Login />} />
 
 
-          <Route
-            exact path='/'
-            element={<App />}
-          />
+            <Route
+              exact path='/'
+              element={<App />}
+            />
 
-        </Routes>
+          </Routes>
+        </PostProvider>
       </AuthProvider>
 
     </BrowserRouter>

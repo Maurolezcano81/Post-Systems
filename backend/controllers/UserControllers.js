@@ -132,6 +132,7 @@ const signIn = async (req, res) =>{
         const userData = {
             token: token,
             user: user.username,
+            id: user.id,
             avatarUrl: user.avatarUrl
         }
         return res.status(200).json({

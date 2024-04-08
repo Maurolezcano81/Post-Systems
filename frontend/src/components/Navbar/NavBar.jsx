@@ -1,9 +1,10 @@
 import useAuth from "../../hooks/useAuth";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
+import ModalCreatePost from "../Posts/ModalCreatePost";
 
-const NavBar = () =>{
-    const {authData, isGuest} = useAuth();
+const NavBar = ({stateCreatedPost}) => {
+    const { authData, isGuest } = useAuth();
     return (
         <>
             <div className="navbar">
@@ -13,6 +14,9 @@ const NavBar = () =>{
                     </div>
                     <div className="userdata-name">
                         <p>{authData.user}</p>
+                    </div>
+                    <div>
+                        <ModalCreatePost/>
                     </div>
                 </div>
 
