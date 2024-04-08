@@ -1,11 +1,9 @@
 import useAuth from "./hooks/useAuth"
-
+import NavBar from "./components/Navbar/NavBar"
 const App = () => {
-  const { authData, isGuest} = useAuth()
-  ;
   return (
     <>
-      {isGuest  == true ? <h1>HOLA</h1> : <h1>BIENDO REGISTRADO {authData.user}</h1>}
+      <NavBar />
     </>
   )
 }

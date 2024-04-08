@@ -4,6 +4,7 @@ import {
     createContext
 } from 'react'
 
+
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -19,6 +20,7 @@ const AuthProvider = ({ children }) => {
         setAuth(null);
         setIsGuest(isGuest);
     }
+
     return (
         <AuthContext.Provider 
             value={{

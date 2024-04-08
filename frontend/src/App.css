@@ -29,17 +29,25 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
+  height: 100vh;
   font-size: 1.6rem;
   margin: 0;
-  color: var(--blanco-0);
+  background: #0F2027;
+  background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);
+  background: linear-gradient(to top, #2C5364, #203A43, #0F2027);
+  background-repeat: no-repeat;
 }
 
-.container-bg{
+#root{
+  display: flex;
+}
+
+.container-bg {
   padding: 0;
   height: 100vh;
   width: 100vw;
   background-image: url(/bg2.jpg);
-  background-position:center;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   backdrop-filter: blur(.5rem);
@@ -64,13 +72,13 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgba(0,0,0, .7);
+  background-color: rgba(0, 0, 0, .7);
   backdrop-filter: blur(10rem);
   border-radius: 2rem;
   box-shadow: 0px 10px 30px var(--negro-0);
 }
 
-.register-image{
+.register-image {
   width: 50%;
   padding: 1rem;
   display: flex;
@@ -79,11 +87,11 @@ body {
 }
 
 
-.register-image img{
+.register-image img {
   width: 50%;
 }
 
-.register-form{
+.register-form {
   display: flex;
   flex-direction: column;
   border-left: .5rem solid var(--gris-1);
@@ -95,19 +103,19 @@ body {
   align-items: center;
 }
 
-label{
+label {
   display: block;
   font-weight: 800;
   margin: 1rem 0;
   color: var(--gris-0);
 }
 
-.register-container-input{
+.register-container-input {
   padding: 1rem;
   width: 100%;
 }
 
-.register-container-input input{
+.register-container-input input {
   color: var(--blanco-0);
   padding: .5rem;
   font-size: 1.4rem;
@@ -118,11 +126,11 @@ label{
   margin: 1rem 0;
 }
 
-.register-container-input input:focus{
+.register-container-input input:focus {
   background-color: rgba(255, 255, 255, .2);
 }
 
-.register-error{
+.register-error {
   font-size: 1.4rem;
   text-align: center;
   width: 100%;
@@ -135,7 +143,7 @@ label{
   font-weight: 700;
 }
 
-.register-button{
+.register-button {
   width: 100%;
   padding: 1rem;
   text-align: right;
@@ -144,12 +152,12 @@ label{
   align-items: center;
 }
 
-.register-button a{
+.register-button a {
   color: var(--gris-0);
   font-size: 1.4rem;
 }
 
-.register-button button{
+.register-button button {
   padding: 1rem 0;
   width: 20rem;
   background-color: var(--azul-0);
@@ -159,12 +167,12 @@ label{
   border-radius: .5rem;
 }
 
-.register-button button:hover{
+.register-button button:hover {
   cursor: pointer;
   background-color: var(--azul-1);
 }
 
-.success{
+.success {
   border-color: var(--verde-1);
   background-color: var(--verde-0);
   color: var(--gris-1);
@@ -188,14 +196,14 @@ label{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0, .7);
+  background-color: rgba(0, 0, 0, .7);
   backdrop-filter: blur(10rem);
   border-radius: 2rem;
   box-shadow: 0px 10px 30px var(--negro-0);
   padding: 1rem;
 }
 
-.login-image{
+.login-image {
   width: 70%;
   padding: 1rem;
   display: flex;
@@ -204,11 +212,11 @@ label{
 }
 
 
-.login-image img{
+.login-image img {
   width: 50%;
 }
 
-.login-form{
+.login-form {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -218,19 +226,19 @@ label{
   align-items: center;
 }
 
-label{
+label {
   display: block;
   font-weight: 800;
   margin: 1rem 0;
   color: var(--gris-0);
 }
 
-.login-container-input{
+.login-container-input {
   padding: 1rem;
   width: 100%;
 }
 
-.login-container-input input{
+.login-container-input input {
   color: var(--blanco-0);
   padding: .5rem;
   font-size: 1.4rem;
@@ -241,11 +249,11 @@ label{
   margin: 1rem 0;
 }
 
-.login-container-input input:focus{
+.login-container-input input:focus {
   background-color: rgba(255, 255, 255, .2);
 }
 
-.login-error{
+.login-error {
   font-size: 1.4rem;
   text-align: center;
   width: 100%;
@@ -258,7 +266,7 @@ label{
   font-weight: 700;
 }
 
-.login-button{
+.login-button {
   width: 100%;
   padding: 1rem;
   text-align: right;
@@ -267,12 +275,12 @@ label{
   align-items: center;
 }
 
-.login-button a{
+.login-button a {
   color: var(--gris-0);
   font-size: 1.4rem;
 }
 
-.login-button button{
+.login-button button {
   padding: 1rem 0;
   width: 20rem;
   background-color: var(--azul-0);
@@ -282,24 +290,106 @@ label{
   border-radius: .5rem;
 }
 
-.login-button button:hover{
+.login-button button:hover {
   cursor: pointer;
   background-color: var(--azul-1);
 }
 
-.guest-option{
+.guest-option {
   margin-top: 1rem;
 }
-.guest-option a{
+
+.guest-option a {
   color: var(--gris-0);
 }
 
-@media (width < 1024px){
-  .login-form{
+.navbar {
+  color: var(--negro-1);
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 3rem;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.userdata-container {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  color: var(--blanco-0);
+  align-items: center;
+}
+
+.userdata-img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: var(--blanco-0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userdata-img img {
+  min-width: 100%;
+  height: auto;
+}
+
+
+.userdata-name {
+  font-size: 2rem;
+}
+
+.navbar-buttons {
+  width: auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar-login{
+  padding: 1rem;
+  color: var(--azul-1);
+  border-radius: 1rem;
+  background-color: var(--blanco-0);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-login:hover{
+  background-color: var(--azul-1);
+  color: var(--blanco-0);
+}
+
+.navbar-login svg{
+  font-size: 2rem;
+}
+
+.navbar-logout{
+  color: var(--rojo-1);
+  background-color: var(--blanco-0);
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+@media (width < 1024px) {
+  .login-form {
     width: 90%;
   }
 
-  .login-button, .register-button{
+  .login-button,
+  .register-button {
     flex-direction: column-reverse;
     gap: 2rem;
   }
