@@ -12,7 +12,13 @@ const Post = (props) => {
 
     return (
         <div data-id={props.id} className="post">
-            {props.authorId != authData.id ? <></> : <ControlsPost postId={props.id} />}
+            {props.authorId != authData.id ? <></> :
+            <ControlsPost 
+            postId={props.id}
+            title={props.title}
+            description={props.description}
+            img={props.img}
+            />}
             <div className='post-autor'>
                 <div className='post-autor-img'>
                     <img src={props.authorImg}></img>
