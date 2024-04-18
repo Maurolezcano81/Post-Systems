@@ -42,8 +42,9 @@ body {
 
 #root {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  position: relative;
+  align-items: center;
 }
 
 a {
@@ -313,15 +314,12 @@ label {
 }
 
 .navbar {
-  position: sticky;
-  left: 0;
-  top: 0;
   color: var(--negro-1);
   display: flex;
-  height: 100vh;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  max-width: 100vw;
+  justify-content: space-around;
+  align-items: center ;
   padding: 3rem 3rem;
   background-color: rgba(0, 0, 0, .4);
 }
@@ -329,7 +327,6 @@ label {
 .userdata-container {
   width: auto;
   display: flex;
-  flex-direction: column;
   gap: 2rem;
   justify-content: center;
   color: var(--blanco-0);
@@ -661,6 +658,107 @@ label {
   justify-content: center;
   top: 0;
   left: 0;
+}
+
+.single__post-container{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.back__home{
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: var(--blanco-0);
+  color: var(--azul-0);
+  border-radius: .5rem;
+}
+
+.comments__container{
+  padding: 0 0 1rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.comment__container{
+  width: 70%;
+  padding: 2rem;
+  border-bottom: .1rem solid var(--gris-1);
+}
+
+.comment__user{
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.comment__user img{
+  height: 4rem;
+  width: 4rem;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.comment__description{
+  text-overflow: clip;
+  word-wrap: break-word;
+}
+
+.comment__controls{
+  width: 100%;
+  text-align: right;
+}
+
+.create__comment__container{
+  width: 70%;
+  background-color: var(--negro-1);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.form__create__comment{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-direction: column;
+}
+
+.create__comment__description textarea{
+  width: 50rem;
+  height: 10rem;
+  background-color: var(--azul-1);
+  color: var(--blanco-0);
+  border: none;
+  padding: 1rem;
+  resize: none;
+  overflow: hidden;
+  word-break: break-all;
+  border-radius: .5rem;
+}
+
+.create__comment__button{
+  width: 45%;
+  text-align: right;
+}
+
+.create__comment__button button{
+  padding: 1rem;
+  background-color: var(--blanco-0);
+  color: var(--azul-1);
+  border-radius: .5rem;
+}
+
+.comment__controls:first-child{
+  height: 4rem;
+  width: 4rem;
 }
 
 @media (width < 1024px) {

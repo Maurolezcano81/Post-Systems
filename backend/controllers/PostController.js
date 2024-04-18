@@ -86,10 +86,15 @@ const showPost = async (req, res) => {
         };
 
 
-        // FALTA ANADIR LOS COMENTARIOS
-        const post = await Post.createSchema.findById({
-            _id: id
-        }).populate('author', 'username avatarUrl');
+        const post = await Post.createSchema.findById({ _id: id })
+            .populate('author', 'username avatarUrl')
+            .populate({
+                path: 'comments',
+                populate: {
+                    path: 'author',
+                    select: 'username avatarUrl'
+                }
+            })
 
         if (post === 0) {
             return res.status(404).json({
@@ -158,43 +163,43 @@ const editPost = async (req, res) => {
     const idUser = req.idUser;
 
     try {
-        
-    const checkPost = await Post.createSchema.findById(id);
 
-    if (checkPost.author != idUser) {
-        return res.status(403).json({
-            message: "No tiene permisos para editar este post"
+        const checkPost = await Post.createSchema.findById(id);
+
+        if (checkPost.author != idUser) {
+            return res.status(403).json({
+                message: "No tiene permisos para editar este post"
+            });
+        }
+        if (!checkPost) {
+            return res.status(404).json({
+                message: "Hubo un problema al obtener el post"
+            })
+        }
+
+        const newData = {
+            title,
+            description,
+            imageUrl
+        }
+
+        const updatedPost = await Post.createSchema.findByIdAndUpdate(
+            {
+                _id: id,
+            },
+            newData
+        )
+
+        if (!updatedPost) {
+            return res.status(500).json({
+                message: "Ha ocurrido un problema al actualizar el post"
+            });
+        }
+
+        return res.status(200).json({
+            message: "Post actualizado correctamente",
+            updatedPost
         });
-    }
-    if (!checkPost) {
-        return res.status(404).json({
-            message: "Hubo un problema al obtener el post"
-        })
-    }
-
-    const newData = {
-        title,
-        description,
-        imageUrl
-    }
-
-    const updatedPost = await Post.createSchema.findByIdAndUpdate(
-        {
-            _id: id,
-        },
-        newData
-    )
-
-    if(!updatedPost){
-        return res.status(500).json({
-            message: "Ha ocurrido un problema al actualizar el post"
-        });
-    }
-
-    return res.status(200).json({
-        message: "Post actualizado correctamente",
-        updatedPost
-    });
     } catch (error) {
         console.log(error.name);
         return res.status(500).json({

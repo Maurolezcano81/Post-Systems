@@ -48,7 +48,6 @@ const Posts = () => {
                     countComments={post.comments.length}
                 />
             ))}
-
         </div>
     )
 }

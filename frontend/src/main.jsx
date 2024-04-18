@@ -11,6 +11,7 @@ import {
 import { AuthProvider } from './context/AuthProvider.jsx';
 import Login from './pages/LoginPage.jsx';
 import { PostProvider } from './context/PostProvider.jsx';
+import SinglePost from './pages/SinglePost.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -33,6 +34,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               exact path='/'
               element={<App />}
             />
+
+          <Route 
+            path='/post/:id'
+            element= {<SinglePost/>}
+          />
 
           </Routes>
         </PostProvider>
